@@ -10,12 +10,17 @@ WORKDIR /usr/src/app
 # Install Chroma server + dependencies
 RUN pip install --no-cache-dir "chromadb[server]" uvicorn
 
-# ---------- Node / Express setup ----------
-COPY package*.json ./
-RUN npm ci --only=production
+# ---------- Node / Express (TypeScript) setup ----------
 
-# Copy app source
+# Copy package files and install deps (include dev deps so tsc works)
+COPY package*.json ./
+RUN npm install
+
+# Copy the rest of the app (TS source, start.sh, etc.)
 COPY . .
+
+# Build TypeScript → JavaScript (expects "build": "tsc" in package.json)
+RUN npm run build
 
 # Ensure start.sh is executable
 RUN chmod +x /usr/src/app/start.sh
