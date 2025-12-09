@@ -38,11 +38,11 @@ export class OpenRouterService {
     const lcModel = new ChatOpenAI({ model: "gpt-4o-mini", temperature: 0 });
     const embeddings = new OpenAIEmbeddings();
     this.browser = new WebBrowser({ model: lcModel, embeddings });
-    this.openAiKey = process.env.OPENAI_API_KEY || ""
+    this.openAiKey = process.env.OPENAI_API_KEY || '';
     this.openai = new OpenAI({
       apiKey: this.openAiKey,
     })
-    this.apiKey = process.env.OPENROUTER_API_KEY || "";
+    this.apiKey = process.env.OPENROUTER_API_KEY || '';
     this.chroma = new ChromaClient({
       host: "localhost",
       port: 8000,
@@ -205,7 +205,7 @@ export class OpenRouterService {
     );
 
     const results = await Promise.all(tasks);
-    const firstMatch = results.find((r:any) => r !== null) ?? null;
+    const firstMatch = results.find((r: any) => r !== null) ?? null;
 
     // Cache result for future
     if (firstMatch) this.websiteCache.set(query, firstMatch);

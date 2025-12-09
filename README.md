@@ -54,7 +54,7 @@ CHROMA_SSL=false
 CHROMA_PDF_COLLECTION=kcglobed_pdfs
 
 # Server Configuration
-PORT=3001
+PORT=8080
 NODE_ENV=development
 ```
 

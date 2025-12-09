@@ -1,1 +1,0 @@
-{"version":3,"file":"kcglobed.d.ts","sourceRoot":"","sources":["../../context/kcglobed.ts"],"names":[],"mappings":"AAGA,MAAM,WAAW,QAAQ;IACrB,KAAK,EAAE,MAAM,CAAC;IACd,GAAG,EAAE,MAAM,CAAC;IACZ,OAAO,EAAE,MAAM,CAAC;CACnB;AAED,wBAAsB,UAAU,IAAI,OAAO,CAAC,QAAQ,EAAE,CAAC,CA4ItD;AAGD,wBAAsB,kBAAkB,IAAI,OAAO,CAAC,IAAI,CAAC,CAoCxD"}

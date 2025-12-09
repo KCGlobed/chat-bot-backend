@@ -33,7 +33,7 @@ async function main() {
     process.exit(1);
   }
 
-  const openaiApiKey = getEnv('OPENAI_API_KEY');
+  const openaiApiKey = getEnv('OPENAI_API_KEY') || ''
   const chromaHost = getEnv('CHROMA_HOST', 'localhost');
   const chromaPort = getEnv('CHROMA_PORT', '8000');
   const chromaSsl = getEnv('CHROMA_SSL', 'false') === 'true';

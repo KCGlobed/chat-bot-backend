@@ -2,15 +2,16 @@
 set -e
 
 echo "Starting Chroma server on port 8000..."
-uvicorn chromadb.app:app --host 0.0.0.0 --port 8000 &
+# Use the official CLI, not uvicorn directly
+# --path /chroma is optional but good for persistence within container
+chroma run --host 0.0.0.0 --port 8000 --path /chroma &
 CHROMA_PID=$!
 
 echo "Waiting for Chroma to start..."
 sleep 3
 
 echo "Starting Node/Express on port ${PORT:-8080}..."
-# For TypeScript build: entry is dist/server.js
 node dist/server.js
 
-# If Node exits, stop Chroma
+echo "Node process exited, shutting down Chroma..."
 kill $CHROMA_PID || true
