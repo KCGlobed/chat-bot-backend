@@ -29,8 +29,8 @@ app.use(
   cors({
     origin:
       process.env.NODE_ENV === "production"
-        ? ["https://yourdomain.com"]
-        : ["http://localhost:3000", "http://localhost:5173"],
+        ? ["https://chatbot-62f67.web.app"]
+        : ["http://localhost:3000", "https://chatbot-62f67.web.app"],
     credentials: true,
   })
 );
