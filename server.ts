@@ -6,7 +6,9 @@ import dotenv from 'dotenv';
 import { testConnection } from './database';
 import OpenRouterService, { OpenRouterMessage } from './openrouter';
 import { allPages } from './contant';
-
+import { excelRedraft } from './features/ExcelRedraft';
+import multer from 'multer';
+const upload = multer({ storage: multer.memoryStorage() });
 dotenv.config();
 
 // Cloud Run sets PORT automatically. Default for local is 8080.
@@ -76,6 +78,13 @@ app.post("/api/chat", async (req, res) => {
     });
   }
 });
+
+
+app.post(
+  "/api/redraft-esxcel-question",
+  upload.single("file"),
+  excelRedraft
+);
 
 // ---------- Essay Verification API ----------
 app.post("/api/essay-verify", async (req, res) => {
